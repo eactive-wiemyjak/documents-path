@@ -7,7 +7,7 @@ function documentsDir() {
     if (process.platform === 'linux') {
         try {
             const configFile = fs.readFileSync(
-                path.resolve(os.homedir(), '.config/user-dirs.dirs'),
+                path.join(os.homedir(), '.config/user-dirs.dirs'),
                 'utf-8'
             );
             const p = configFile.match(/XDG_DOCUMENTS_DIR=(.*)\r?\n/)[1].trim();
@@ -16,8 +16,10 @@ function documentsDir() {
                 p.replace(/^(?:"|')(.*)(?:"|')$/, '$1').replace(/\$HOME/, '')
             );
         } catch (err) {
-            return path.resolve(os.homedir(), 'Documents');
+            return path.join(os.homedir(), 'Documents');
         }
+    } else if (process.platform === 'darwin') {
+        return path.join(os.homedir(), 'Documents');
     } else {
         throw new Error('Unknown platform!');
     }
