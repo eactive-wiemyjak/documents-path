@@ -1,0 +1,16 @@
+{
+    "name": "documents-path",
+    "version": "1.0.0",
+    "description": "Module returns string with path to Documents folder on Linux, Mac and Windows",
+    "main": "index.js",
+    "scripts": {
+        "test": "node test.js"
+    },
+    "keywords": [
+        "documents path",
+        "documents dir",
+        "documents folder"
+    ],
+    "author": "EACTIVE #wiemyjak",
+    "license": "MIT"
+}
