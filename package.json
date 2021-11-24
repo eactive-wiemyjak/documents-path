@@ -9,5 +9,9 @@
         "documents folder"
     ],
     "author": "EACTIVE #wiemyjak",
-    "license": "MIT"
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/eactive-wiemyjak/documents-path.git"
+    }
 }
