@@ -4,7 +4,9 @@ const path = require('path');
 const fs = require('fs');
 
 function documentsDir() {
-    if (process.platform === 'linux') {
+    if (['darwin', 'win32'].includes(process.platform)) {
+        return path.join(os.homedir(), 'Documents');
+    } else if (process.platform === 'linux') {
         try {
             const configFile = fs.readFileSync(
                 path.join(os.homedir(), '.config/user-dirs.dirs'),
@@ -18,8 +20,6 @@ function documentsDir() {
         } catch (err) {
             return path.join(os.homedir(), 'Documents');
         }
-    } else if (process.platform === 'darwin') {
-        return path.join(os.homedir(), 'Documents');
     } else {
         throw new Error('Unknown platform!');
     }
