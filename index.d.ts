@@ -1,4 +1,2 @@
-module 'documents-dir' {
-    declare const documentsDir: string;
-    export default documentsDir;
-}
+declare const documentsPath: string;
+export default documentsPath;
